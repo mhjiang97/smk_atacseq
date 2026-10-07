@@ -1,0 +1,30 @@
+include: "rules/common.smk"
+include: "rules/qc/qc.smk"
+include: "rules/qc/fastp.smk"
+include: "rules/mapper/bowtie2.smk"
+include: "rules/gatk/mark_duplicates.smk"
+include: "rules/samtools/faidx.smk"
+include: "rules/bedtools/complement.smk"
+include: "rules/samtools/view.smk"
+include: "rules/samtools/sort.smk"
+include: "rules/bedtools/bamtobed.smk"
+include: "rules/bedtools/shift.smk"
+include: "rules/qc/preseq.smk"
+include: "rules/gatk/collect_metrics.smk"
+include: "rules/bedtools/sort.smk"
+include: "rules/bedtools/genomecov.smk"
+include: "rules/ucsc/bedgraph_to_bigwig.smk"
+include: "rules/deeptools/bam_coverage.smk"
+include: "rules/deeptools/alignment_sieve.smk"
+include: "rules/caller/macs3.smk"
+include: "rules/caller/genrich.smk"
+include: "rules/qc/ataqv.smk"
+include: "rules/qc/encode.smk"
+include: "rules/qc/frip.smk"
+include: "rules/deeptools/compute_matrix.smk"
+include: "rules/deeptools/plot_heatmap.smk"
+
+
+rule all:
+    input:
+        lambda wildcards: get_targets(),
